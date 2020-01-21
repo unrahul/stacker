@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Docker assembler and formatting tool for stacks
 
 - parse spec file - DONE
@@ -24,29 +23,10 @@ import re
 import shutil
 import sys
 
-# import docker
+from absl import app
 import yaml
-from absl import app, flags
 
-# sort of like opt parse
-FLAGS = flags.FLAGS
-flags.DEFINE_string(
-    "dockerfile_dir",
-    "./dockerfiles",
-    "save dockerfiles to this directory",
-    short_name="o",
-)
-
-flags.DEFINE_string(
-    "slices_path",
-    "./slices/",
-    "path to a directory containing slices of dockerfiles",
-    short_name="p",
-)
-flags.DEFINE_string(
-    "spec_file", "./spec.yml", "Path to the YAML specification file", short_name="s"
-)
-
+from cli import FLAGS
 
 def read_template_slices(slices_path="."):
     """read all partial dockerfiles.

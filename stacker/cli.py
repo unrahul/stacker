@@ -1,25 +1,27 @@
+#!/usr/bin/env python3
 """Console script for stacker."""
 import argparse
 import sys
 
-
-def main():
-    """Console script for stacker."""
-    parser = argparse.ArgumentParser()
-    parser.add_argument('generate', nargs='*')
-    parser.add_argument('os', nargs='*')
-    parser.add_argument('py', nargs='*')
-    parser.add_argument('stack', nargs='*')
-    args = parser.parse_args()
-
-    print("Arguments: " + str(args.generate))
-    print("Arguments: " + str(args.os))
-    print("Arguments: " + str(args.py))
-    print("Arguments: " + str(args.py))
-    print("Replace this message by putting your code into "
-          "stacker.cli.main")
-    return 0
+from absl import flags
 
 
-if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+FLAGS = flags.FLAGS
+
+# sort of like opt parse
+flags.DEFINE_string(
+    "dockerfile_dir",
+    "./dockerfiles",
+    "save dockerfiles to this directory",
+    short_name="o",
+)
+
+flags.DEFINE_string(
+    "slices_path",
+    "./slices/",
+    "path to a directory containing slices of dockerfiles",
+    short_name="p",
+)
+flags.DEFINE_string(
+    "spec_file", "./dlrs.yml", "Path to the YAML specification file", short_name="s"
+)
