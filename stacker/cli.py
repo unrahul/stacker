@@ -23,5 +23,5 @@ flags.DEFINE_string(
     short_name="p",
 )
 flags.DEFINE_string(
-    "spec_file", "./dlrs.yml", "Path to the YAML specification file", short_name="s"
+    "spec_file", "./specs/dlrs.yml", "Path to the YAML specification file", short_name="s"
 )
