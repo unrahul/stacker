@@ -1,0 +1,141 @@
+# mix and match slices of dockerfiles
+# to generate a Dockerfile for the stacks
+# image.
+
+stacks:
+    dlrs:
+        tensorflow:
+            # tensorflow with mkl
+            tags:
+                - "{tensorflow}{mkl}"
+                - "{VERSION}{clr}"
+                - "{VERSION}{ubuntu}"
+        
+        pytorch:
+            # pytorch with mkl
+            tags:
+                - "{pytorch}{mkl}"
+                - "{VERSION}{clr}"
+                - "{VERSION}{ubuntu}"
+        
+        dockerfiles:
+            is_dockerfiles: true
+            tags:
+                - "{clr}{base}"
+                - "{clr}{tensorflow}"
+                - "{clr}{pytorch}"
+                - "{clr}{openvino}"
+                - "{clr}{jupyterlab}"
+                - "{clr}{horovod}"
+                - "{ubuntu}{base}"
+                - "{ubuntu}{tensorflow}"
+                - "{ubuntu}{pytorch}"
+                - "{ubuntu}{openvino}"
+                - "{ubuntu}{jupyterlab}"
+                - "{ubuntu}{horovod}"
+slices:
+    py:
+        - add_to_name: ""
+          args:
+            - PYTHON_VERSION=
+        - add_to_name: "-py{PYTHON_VERSION}"
+          args:
+            - PYTHON_VERSION=37
+    openvino:
+            - add_to_name: ""
+            - add_to_name: "-openvino"
+              partials:
+                    - openvino
+
+    clearLinux:
+        - add_to_name: ""
+          dockerfile_name: "cpu"
+          parials:
+            - clear/version
+            - clear/cpu
+            - clear/python
+            - tensorflow
+            - openvino
+            - horovod
+            - jupyterlab
+            - shell
+        - add_to_name: "gpu"
+          args:
+            - TF_PACKAGES=tensorflow
+          parials:
+            - clear/version
+            - clear/cpu
+            - clear/python
+            - tensorflow
+            - openvino
+            - horovod
+            - jupyterlab
+            - shell
+
+    ubuntu:
+        - add_to_name: "cpu"
+          dockerfile_name: "cpu"
+          parials:
+            - ubuntu/version
+            - ubuntu/cpu
+            - ubuntu/python
+            - tensorflow
+            - openvino
+            - horovod
+            - jupyterlab
+            - shell
+        - add_to_name: "pv"
+        # DG0 version of DLRS
+          args:
+            - TF_PACKAGES=tensorflow-pv
+          parials:
+            - ubuntu/version
+            - ubuntu/cpu
+            - ubuntu/python
+            - tensorflow
+            - openvino
+            - horovod
+            - jupyterlab
+            - shell
+
+    centos:
+        - add_to_name: ""
+          dockerfile_name: "cpu"
+          parials:
+            - centos/version
+            - centos/cpu
+            - centos/python
+            - tensorflow
+            - openvino
+            - horovod
+            - jupyterlab
+            - shell
+    
+    ubuntu-devel:
+        - add_to_name: "ubuntu-devel"
+          dockerfile_name: "devel-cpu"
+          partials:
+            - ubuntu/version
+            - ubuntu/devel-cpu
+            - ubuntu/python
+            - ubuntu/bazel
+            - shell
+          args:
+            - CHECKOUT_TF_SRC=1
+            - CHECKOUT_TORCH_SRC=1
+            - CHECKOUT_HVD_SRC=1
+
+
+    clearlinux-devel:
+        - add_to_name: "ubuntu-devel"
+          dockerfile_name: "devel-cpu"
+          partials:
+            - clr/version
+            - clr/devel-cpu
+            - clr/python
+            - clr/bazel
+            - shell
+          args:
+            - CHECKOUT_TF_SRC=1
+            - CHECKOUT_TORCH_SRC=1
+            - CHECKOUT_HVD_SRC=1
