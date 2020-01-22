@@ -1,14 +1,11 @@
-=======
-stacker
-=======
+## stacker
 
 
 Tool to generate Dockerfiles from templates and scripts for stacks.
 
 * Free software: MIT license
 
-Usage
------
+### Usage
 
 clone the github repo to your local, cd to  stacker/stacker/
 
@@ -33,15 +30,14 @@ DESCRIPTION
     --build to build dockerimages from generated files eg. python cli.py --generate --build
 
 
-Core components
----------------
+### Core components
 
 
 - specs/dlrs.yaml
 
 A loosely defined specification file
 
-```yaml
+```python
 
 ---
 version: "0.6.0"
@@ -91,8 +87,7 @@ RUN {{pkg_install}}
 Here there are 2 place holder variables `{{os}}` and `{{pkg_install}}`
 Again, OS and system packages would be injected dynamically based on the spec file
 
-Features
---------
+### Features
 
 - parse spec file - DONE
 - parse slices of dockerfiles per app - DONE
@@ -108,12 +103,11 @@ Features
 
 
 
-CODE DOCS
----------
-*TODO
+### Code docs
 
-Core principles
----------------
+TODO
+
+### Core principles
 
 - Maintainable and upgradable solution
 - Use Spec files to define configuaration values
