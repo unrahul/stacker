@@ -3,11 +3,16 @@ import sys
 
 from ruamel.yaml import YAML
 
-yaml = YAML()
-specfile = "specs/dlrs.yaml"
-spec = ""
-with open(specfile) as fh:
-    spec = yaml.load(fh.read())
+def init(specfile="specs/dlrs.yaml"):
+    global spec
+    yaml = YAML()
+    with open(specfile) as fh:
+        spec = yaml.load(fh.read())
 
-print(spec["version"])
-print(spec["stack"]["dlrs"]["ubuntu"]["apt"])
+
+
+if __name__== "__main__":
+    init()
+    print(spec["version"])
+    print(spec["license"])
+    print(spec["stack"]["dlrs"]["ubuntu"]["apt"])

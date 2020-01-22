@@ -1,15 +1,18 @@
 ---
-version: "0.5.0"
+version: "0.6.0"
 description: "Deep Learning Reference Stack"
 license: |
-  MIT license
+  # SPDX-License-Identifier: MIT
+  # Copyright (c) 2019 Intel Corporation
 
 stack:
   dlrs:
+    version: "0.6.0"
+    tag: dlrs
     ubuntu:
       version: "18.10"
-      tag: "dlrs_ubuntu"
-      apt:
+      tag: ubuntu
+      os_pkgs:
         - openssh-server
         - openssh-client
         - wget
@@ -21,24 +24,26 @@ stack:
         mkl:
           version: "2.1.0"
           tag: tf_mkl
-        oss:
+          flags: "CLAGS='-march=skylake-avx512 -mtune=cascadelake'"
+          src:
+            url: "github.com/tensorflow/tensorflow.git"
+            branch: "r2.1"
+        oss:     
           version: "1.15.0"
+          tag: tf_oss
       pytorch:
         mkl:
           version: "1.2.1"
           tag: torch_mkl
+          src: "github.com/pytorch/pytorch.git"
         oss:
           version: "1.0.0"
       horovod:
         version: "0.16.0"
-      openmpi:
-        link: "www.openmpi"
-        version: "1"
-    
     clear:
       version: latest
       release: "dlrs_clear"
-      bundle:
+      os_pkgs:
         - openssh-server
         - openssh-client
         - wget
@@ -60,9 +65,7 @@ stack:
           version: "1.0.0"
       horovod:
         version: "0.16.0"
-      openmpi:
-        link: "www.openmpi"
-        version: "1"
+
 
 
 

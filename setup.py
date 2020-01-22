@@ -2,7 +2,7 @@
 
 from setuptools import find_packages, setup  # type: ignore
 
-with open("README.md") as readme_file:
+with open("README.rst") as readme_file:
     readme = readme_file.read()
 
 setup(
@@ -25,9 +25,9 @@ setup(
     include_package_data=True,
     keywords="stacker",
     name="stacker",
-    package_dir={"": "src"},
-    packages=find_packages(include=["src/stacker", "src/stacker.*"]),
-    setup_requires=[],
+    package_dir={"": "stacker"},
+    packages=find_packages(include=["stacker", "stacker.*"]),
+    setup_requires=["jinja","ruamel.yaml", "fire"],
     url="https://github.com/unrahul/stacker",
     version="0.1.0",
     zip_safe=False,

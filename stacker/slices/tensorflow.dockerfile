@@ -1,1 +1,1 @@
-RUN pip install tensorflow=={{version}}
+RUN pip install tensorflow=={{tf_version}}
