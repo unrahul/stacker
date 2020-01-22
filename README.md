@@ -1,34 +1,17 @@
 ## stacker
 
 
-Tool to generate Dockerfiles from templates and scripts for stacks.
-
-* Free software: MIT license
+A rough prototype for a tool to generate Dockerfiles from templates and scripts for stacks. Be careful, there are rough edges!
 
 ### Usage
 
-clone the github repo to your local, cd to  stacker/stacker/
-
-For now, use the following command to generate dockerfiles
+- clone the github repo to your local, cd to  stacker/stacker/
+- For now, use the following command to generate dockerfiles
 
 ```bash
 python cli.py --generate 
 ```
-
 This command will generate all possible dockerfiles for all OSes and frameworks as defined in the spec file.
-
-Extended cli options:
-
-NAME
-    cli.py - Tool to generate dockerfiles and build dockerimages for stacks
-
-SYNOPSIS
-    cli.py GENERATE <flags>
-
-DESCRIPTION
-    --generate to generte dockerfiles eg. python cli.py --generate
-    --build to build dockerimages from generated files eg. python cli.py --generate --build
-
 
 ### Core components
 
@@ -37,7 +20,7 @@ DESCRIPTION
 
 A loosely defined specification file
 
-```python
+```yaml
 
 ---
 version: "0.6.0"
@@ -62,14 +45,13 @@ stack:
       python:
 
 ```
-
 - slices/<component>.dockerfile
 
 Each component is defined as dockerfiles templates
 
 Eg. A tensorflow dockerfile cane be something like:
 
-```bash
+```dockerfile
 RUN pip install tensorflow=={{tf_version}}
 ```
 
@@ -78,9 +60,8 @@ from the spec file value `spec.stack.dlrs.ubuntu.tensorflow.version`
 
 Another template is for the OS
 
-```bash
+```dockerfile
 FROM {{os}}
-
 RUN {{pkg_install}}  
 ```
 
@@ -100,12 +81,6 @@ Again, OS and system packages would be injected dynamically based on the spec fi
 - convert dockerfiles to singularity recepies
 - lint dockerfiles
 - resize images
-
-
-
-### Code docs
-
-TODO
 
 ### Core principles
 
