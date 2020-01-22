@@ -9,7 +9,7 @@ A rough prototype for a tool to generate Dockerfiles from templates and scripts 
 - For now, use the following command to generate dockerfiles
 
 ```bash
-python cli.py --generate 
+python stacker.py --generate 
 ```
 This command will generate all possible dockerfiles for all OSes and frameworks as defined in the spec file.
 
