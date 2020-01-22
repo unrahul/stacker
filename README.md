@@ -57,7 +57,7 @@ Eg. A tensorflow dockerfile cane be something like:
 RUN pip install tensorflow=={{tf_version}}
 ```
 
-here `{{tf_version}}` is a variable that would be dynamically injected
+Here `{{tf_version}}` is a variable that would be dynamically injected
 from the spec file value `spec.stack.dlrs.ubuntu.tensorflow.version`
 
 Another template is for the OS
@@ -67,7 +67,7 @@ FROM {{os}}
 RUN {{pkg_install}}  
 ```
 
-Here there are 2 place holder variables `{{os}}` and `{{pkg_install}}`
+Here, there are 2 place holder variables `{{os}}` and `{{pkg_install}}`
 Again, OS and system packages would be injected dynamically based on the spec file
 
 ### Features
