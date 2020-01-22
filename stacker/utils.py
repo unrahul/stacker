@@ -23,7 +23,7 @@ def mkdir_p(path: str) -> str:
         eprint(e)
 
 
-def write_to_file(path: str, content: str):
+def write_to_file(path: str, content: str) -> None:
     """write to file, da!"""
     try:
         pathlib.Path(path).write_text(content)

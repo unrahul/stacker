@@ -14,7 +14,8 @@ parser.init()
 spec = parser.spec
 
 
-def _concat(slice):
+def _concat(slice: str) -> str:
+    """helper to concatenate each template slice."""
     return "{}\n".format(slice)
 
 
@@ -27,11 +28,9 @@ def slices_filename_content_hash() -> dict:
     return docker_slices
 
 
-docker_slices = slices_filename_content_hash()
-
-
-def concat_slices(component: str = "tensorflow", flavor="mkl") -> str:
+def concat_slices(component: str = "tensorflow", flavor: str = "mkl") -> str:
     """concatenate templates based on the what user want"""
+    docker_slices = slices_filename_content_hash()
     names = ["os.dockerfile"]
     dockerfile = ""
     if component == "tensorflow" and flavor == "mkl":
@@ -45,13 +44,13 @@ def concat_slices(component: str = "tensorflow", flavor="mkl") -> str:
     return "".join(dockerfile)
 
 
-def insert_template_values(dockerfile, kwargs):
+def insert_template_values(dockerfile: str, kwargs: dict):
     dockerfile = Template(dockerfile)
     dockerfile = dockerfile.render(**kwargs)
     return dockerfile
 
 
-def generate_dockerfile(os, framework, file_name="Dockerfile"):
+def generate_dockerfile(os: str, framework: str, file_name: str = "Dockerfile"):
     """generate and write to dir dockerfiles per `os` and `framework`"""
     dlrs = spec["stack"]["dlrs"]
     os_version = dlrs[os]["version"]
@@ -72,7 +71,8 @@ def generate_dockerfile(os, framework, file_name="Dockerfile"):
     write_to_file(file_name, dockerfile)
 
 
-def all_dockerfles(generate=True, build=False):
+def genrate_all_dockerfles(generate: bool = True, build: bool = False) -> None:
+    """generate all dockerfiles for all frameworks and OSes"""
     if generate:
         base_dir = "./dockerfiles"
         for framework in ["pytorch", "tensorflow"]:

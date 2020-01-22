@@ -4,7 +4,12 @@ import sys
 from ruamel.yaml import YAML
 
 
-def init(specfile="specs/dlrs.yaml"):
+def init(specfile: str = "specs/dlrs.yaml") -> None:
+    """initializer, read in specification file and assign to variable spec.
+    >>> init()
+    >>> print(spec["version"])
+    0.6.0
+    """
     global spec
     yaml = YAML()
     with open(specfile) as fh:
@@ -12,6 +17,7 @@ def init(specfile="specs/dlrs.yaml"):
 
 
 if __name__ == "__main__":
+    """trivial examples"""
     init()
     print(spec["version"])
     print(spec["license"])
