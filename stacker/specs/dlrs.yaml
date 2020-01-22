@@ -1,0 +1,70 @@
+---
+version: "0.5.0"
+description: "Deep Learning Reference Stack"
+license: |
+  MIT license
+
+stack:
+  dlrs:
+    ubuntu:
+      version: "18.10"
+      tag: "dlrs_ubuntu"
+      apt:
+        - openssh-server
+        - openssh-client
+        - wget
+        - curl
+        - python37
+      python:
+        version: "3.7"
+      tensorflow:
+        mkl:
+          version: "2.1.0"
+          tag: tf_mkl
+        oss:
+          version: "1.15.0"
+      pytorch:
+        mkl:
+          version: "1.2.1"
+          tag: torch_mkl
+        oss:
+          version: "1.0.0"
+      horovod:
+        version: "0.16.0"
+      openmpi:
+        link: "www.openmpi"
+        version: "1"
+    
+    clear:
+      version: latest
+      release: "dlrs_clear"
+      bundle:
+        - openssh-server
+        - openssh-client
+        - wget
+        - curl
+        - python3-basic
+      python:
+        version: "3.7"
+      tensorflow:
+        mkl:
+          version: "2.1.0"
+          tag: python_mkl
+        oss:
+          version: "1.15.0"
+      pytorch:
+        mkl:
+          version: "1.2.1"
+          tag: torch_mkl
+        oss:
+          version: "1.0.0"
+      horovod:
+        version: "0.16.0"
+      openmpi:
+        link: "www.openmpi"
+        version: "1"
+
+
+
+  
+
