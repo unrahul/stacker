@@ -14,8 +14,9 @@ Features
 
 - parse spec file - DONE
 - parse slices of dockerfiles per app - DONE
-- update dockerfile based on the yaml file values
-- convert dockerfiles to singularity recepies
+- update dockerfile based on the yaml file values - DONE
+- generate combined dockerfile - DONE
+- convert dockerfiles to singularity recepies 
 
  **TODO**
 - assemble dockerfiles from slices
