@@ -47,7 +47,7 @@ stack:
 ```
 Similarly spec files for each stack can be defined, or even put into the one single file.
 
-- slices/<component>.dockerfile
+- slices/component.dockerfile
 
 Each component is defined as dockerfiles templates
 
