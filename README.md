@@ -67,7 +67,7 @@ FROM {{os}}
 RUN {{pkg_install}}  
 ```
 
-Here, there are 2 place holder variables `{{os}}` and `{{pkg_install}}`
+Here, there are 2 placeholder variables `{{os}}` and `{{pkg_install}}`
 Again, OS and system packages would be injected dynamically based on the spec file
 
 ### Features
@@ -87,7 +87,7 @@ Again, OS and system packages would be injected dynamically based on the spec fi
 ### Core principles
 
 - Maintainable and upgradable solution
-- Use Spec files to define configuaration values
+- Use yaml specification files to define configuaration values
 - Use Dockerfiles as templates which can accept substitution from the spec files
 - Limit use of shell scripts/custom templates use Dockerfiles where possible
 - Use official [Docker](https://github.com/docker/docker-py) and [Singularity](https://github.com/singularityhub/singularity-cli) clients where possible
