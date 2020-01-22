@@ -1,7 +1,7 @@
 ## stacker
 
 
-A rough prototype for a tool to generate Dockerfiles from templates and scripts for stacks. Be careful, there are rough edges!
+A prototype for a tool to generate Dockerfiles from templates and scripts for stacks. Be careful, there are rough edges!
 
 ### Usage
 
