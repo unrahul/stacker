@@ -27,7 +27,7 @@ setup(
     name="stacker",
     package_dir={"": "stacker"},
     packages=find_packages(include=["stacker", "stacker.*"]),
-    setup_requires=["jinja","ruamel.yaml", "fire"],
+    setup_requires=["jinja", "ruamel.yaml", "fire"],
     url="https://github.com/unrahul/stacker",
     version="0.1.0",
     zip_safe=False,

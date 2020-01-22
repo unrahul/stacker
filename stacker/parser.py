@@ -3,6 +3,7 @@ import sys
 
 from ruamel.yaml import YAML
 
+
 def init(specfile="specs/dlrs.yaml"):
     global spec
     yaml = YAML()
@@ -10,8 +11,7 @@ def init(specfile="specs/dlrs.yaml"):
         spec = yaml.load(fh.read())
 
 
-
-if __name__== "__main__":
+if __name__ == "__main__":
     init()
     print(spec["version"])
     print(spec["license"])
