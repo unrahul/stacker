@@ -3,7 +3,7 @@
 import fire
 
 
-from assembler import generate_all_dockerfles
+from assembler import generate_all_dockerfiles
 
 
 # TODO implement opts --build, --lint, --dry-run, --tag
@@ -14,7 +14,7 @@ def stacker(generate, build=False):
        --generate to generte dockerfiles eg. python cli.py --generate
        --build to build dockerimages from generated files eg. python cli.py --generate --build
     """
-    generate_all_dockerfles(generate, build)
+    generate_all_dockerfiles(generate, build)
 
 
 def main():

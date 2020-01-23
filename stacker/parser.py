@@ -4,7 +4,7 @@ import sys
 from ruamel.yaml import YAML
 
 
-def init(specfile: str = "specs/dlrs.yaml") -> None:
+def init(specfile: str = "configs/dlrs.yaml") -> None:
     """initializer, read in specification file and assign to variable spec.
     >>> init()
     >>> print(spec["version"])

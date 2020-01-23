@@ -1,5 +1,6 @@
-ruamel.yaml
+docker
 fire
-docker-py
-singularity-py
 jinja
+mypy
+ruamel.yaml
+singularity[metrics]
