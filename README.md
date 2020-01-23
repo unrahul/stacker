@@ -3,6 +3,14 @@
 
 A prototype for a tool to generate Dockerfiles from templates and scripts for stacks. Be careful, there are rough edges!
 
+### Things to note
+- This tool is **NOT** a systems or language or even an application package manager for the use better tools that are areadly out there. (guix, mock, dpkg, pip, cargo, meson...)
+- Reproducabile build setups can be (should be) used where possible for packages with exisiting tools like `Guix` or similar ones available.
+- Rolling a halfassed package manager by your own would be a pain, *don't do it*.
+
+This tool is just a glorified dockerfiles and singularity recipie sticher with additional support for linting, and possible building Docker (docker build) and Singularity Images.
+
+
 ### Usage
 
 - clone the github repo to your local, cd to  stacker/stacker/
