@@ -13,54 +13,40 @@ This tool is just a glorified dockerfiles and singularity recipie sticher with a
 
 ### Project requirements
 
+It is common to use pip and a virtual environment for python development. Consider using these tools while following this README. If you are using python 3 'venv' will already be installed, and all testing is done in python 3.
+
+- [pip installation instructions](https://pip.pypa.io/en/stable/installing/)
+- [virtual environment primer](https://realpython.com/python-virtual-environments-a-primer/)
+
 Every python project has requirement files, in this case the repository
 **stacker** has the following files:
 
 - **requirements.txt**: which contains all the requirements
   that the project needs.
 
-### Python virtual environments
-
-Python “Virtual Environments” allow Python packages to be installed in an
-isolated location for a particular application, rather than being installed
-globally.
-
-### Installation of Virtual Environment
-Make sure you have python **virtualenv** package installed in your host machine.
-
-```
- $ sudo apt install python-pip
- $ sudo pip install virtualenv
-```
-
-You can manage your virtual environments for the two options explained below:
-
-### Managing virtual environments raw
-
-If you want a more direct way to work with virtual environment on python
-you can follow below steps:
-
-```
- $ virtualenv my-venv
- $ source my-venv/bin/activate
-```
-### Install the project requirements on virtual environment.
-Now that virtualenv is activated you need to install the needed packages.
-
-```
- $ cd <stacker>
- $ pip install -r requirements.txt
-```
 
 ### Usage
 
-- clone the github repo to your local, then
+- clone the github repo to your local
 
 ```
-cd stacker/stacker/
+cd stacker/
 
 ```
-- For now, use the following command to generate dockerfiles
+
+- Install requirements
+
+```
+pip install requirements.txt
+```
+
+- Navigate to stacker.py
+
+```
+cd stacker
+```
+
+- Generate dockerfiles
 
 ```bash
 python stacker.py --generate
