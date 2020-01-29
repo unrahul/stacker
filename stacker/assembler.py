@@ -71,7 +71,7 @@ def generate_dockerfile(os: str, framework: str, file_name: str = "Dockerfile"):
     write_to_file(file_name, dockerfile)
 
 
-def genrate_all_dockerfles(generate: bool = True, build: bool = False) -> None:
+def generate_all_dockerfiles(generate: bool = True, build: bool = False) -> None:
     """generate all dockerfiles for all frameworks and OSes"""
     if generate:
         base_dir = "./dockerfiles"
