@@ -1,6 +1,6 @@
 docker
 fire
-jinja
+jinja2
 mypy
 ruamel.yaml
 singularity[metrics]
