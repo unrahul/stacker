@@ -13,11 +13,6 @@ This tool is just a glorified dockerfiles and singularity recipie sticher with a
 
 ### Project requirements
 
-It is common to use pip and a virtual environment for python development. Consider using these tools while following this README. If you are using python 3 'venv' will already be installed, and all testing is done in python 3.
-
-- [pip installation instructions](https://pip.pypa.io/en/stable/installing/)
-- [virtual environment primer](https://realpython.com/python-virtual-environments-a-primer/)
-
 Every python project has requirement files, in this case the repository
 **stacker** has the following files:
 
@@ -27,23 +22,11 @@ Every python project has requirement files, in this case the repository
 
 ### Usage
 
-- clone the github repo to your local
+- clone the github repo to your local and navigate to stacker.py
 
 ```
-cd stacker/
+cd stacker/stacker
 
-```
-
-- Install requirements
-
-```
-pip install requirements.txt
-```
-
-- Navigate to stacker.py
-
-```
-cd stacker
 ```
 
 - Generate dockerfiles
