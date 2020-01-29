@@ -11,15 +11,62 @@ A prototype for a tool to generate Dockerfiles from templates and scripts for st
 This tool is just a glorified dockerfiles and singularity recipie sticher with additional support for linting, and possible building Docker (docker build) and Singularity Images.
 
 
+### Project requirements
+
+Every python project has requirement files, in this case the repository
+**stacker** has the following files:
+
+- **requirements.txt**: which contains all the requirements
+  that the project needs.
+
+### Python virtual environments
+
+Python “Virtual Environments” allow Python packages to be installed in an
+isolated location for a particular application, rather than being installed
+globally.
+
+### Installation of Virtual Environment
+Make sure you have python **virtualenv** package installed in your host machine.
+
+```
+ $ sudo apt install python-pip
+ $ sudo pip install virtualenv
+```
+
+You can manage your virtual environments for the two options explained below:
+
+### Managing virtual environments raw
+
+If you want a more direct way to work with virtual environment on python
+you can follow below steps:
+
+```
+ $ virtualenv my-venv
+ $ source my-venv/bin/activate
+```
+### Install the project requirements on virtual environment.
+Now that virtualenv is activated you need to install the needed packages.
+
+```
+ $ cd <stacker>
+ $ pip install -r requirements.txt
+```
+
 ### Usage
 
-- clone the github repo to your local, cd to  stacker/stacker/
+- clone the github repo to your local, then
+
+```
+cd stacker/stacker/
+
+```
 - For now, use the following command to generate dockerfiles
 
 ```bash
-python stacker.py --generate 
+python stacker.py --generate
 ```
-This command will generate all possible dockerfiles for all OSes and frameworks as defined in the spec file.
+This command will generate all possible dockerfiles for all OSes and frameworks
+as defined in the spec file.
 
 ### Core components
 
@@ -53,7 +100,8 @@ stack:
       python:
 
 ```
-Similarly spec files for each stack can be defined, or even put into the one single file.
+Similarly spec files for each stack can be defined, or even put into the one
+single file.
 
 - slices/component.dockerfile
 
@@ -76,7 +124,8 @@ RUN {{pkg_install}}
 ```
 
 Here, there are 2 placeholder variables `{{os}}` and `{{pkg_install}}`
-Again, OS and system packages would be injected dynamically based on the spec file
+Again, OS and system packages would be injected dynamically based on the spec
+file
 
 ### Features
 
