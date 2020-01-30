@@ -28,7 +28,7 @@ stack:
           src:
             url: "github.com/tensorflow/tensorflow.git"
             branch: "r2.1"
-        oss:     
+        oss:
           version: "1.15.0"
           tag: tf_oss
       pytorch:
@@ -40,7 +40,7 @@ stack:
           version: "1.0.0"
       horovod:
         version: "0.16.0"
-    clear:
+    clearlinux:
       version: latest
       release: "dlrs_clear"
       os_pkgs:
