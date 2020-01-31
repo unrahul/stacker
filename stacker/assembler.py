@@ -3,9 +3,9 @@ from pathlib import Path
 
 from jinja2 import Template
 
-import parser
-from utils import write_to_file
-from utils import mkdir_p
+from stacker import parser
+from stacker.utils import write_to_file
+from stacker.utils import mkdir_p
 
 parser.init()
 
@@ -22,7 +22,9 @@ def _concat(slice: str) -> str:
 def slices_filename_content_hash() -> dict:
     """create a dict of filename: content for slices"""
     docker_slices = {}
-    path = Path.cwd().joinpath("slices")
+    path = Path.cwd().joinpath(
+        os.path.join(os.path.dirname(os.path.realpath(__file__)), "slices")
+    )
     for file in path.iterdir():
         docker_slices[file.name] = file.read_text()
     return docker_slices
@@ -71,7 +73,7 @@ def generate_dockerfile(os: str, framework: str, file_name: str = "Dockerfile"):
     write_to_file(file_name, dockerfile)
 
 
-def genrate_all_dockerfles(generate: bool = True, build: bool = False) -> None:
+def generate_all_dockerfiles(generate: bool = True, build: bool = False) -> None:
     """generate all dockerfiles for all frameworks and OSes"""
     if generate:
         base_dir = "./dockerfiles"

@@ -1,5 +1,5 @@
 """parse the spec file and convert to python dicts."""
-import sys
+import os
 
 from ruamel.yaml import YAML
 
@@ -12,6 +12,7 @@ def init(specfile: str = "configs/dlrs.yaml") -> None:
     """
     global spec
     yaml = YAML()
+    specfile = os.path.join(os.path.dirname(os.path.realpath(__file__)),specfile)
     with open(specfile) as fh:
         spec = yaml.load(fh.read())
 

@@ -1,46 +1,38 @@
 ## stacker
 
 
-A prototype for a tool to generate Dockerfiles from templates and scripts for stacks. Be careful, there are rough edges!
-
-### Things to note
-- This tool is **NOT** a systems or language or even an application package manager for the use better tools that are areadly out there. (guix, mock, dpkg, pip, cargo, meson...)
-- Reproducabile build setups can be (should be) used where possible for packages with exisiting tools like `Guix` or similar ones available.
-- Rolling a halfassed package manager by your own would be a pain, *don't do it*.
-
-This tool is just a glorified dockerfiles and singularity recipie sticher with additional support for linting, and possible building Docker (docker build) and Singularity Images.
+A tool to generate Dockerfiles from templates and scripts for stacks. Be careful, there are rough edges!
 
 
-### Project requirements
+### installation
 
-Every python project has requirement files, in this case the repository
-**stacker** has the following files:
+Install poetry(https://python-poetry.org)
 
-- **requirements.txt**: which contains all the requirements
-  that the project needs.
-
-
-### Usage
-
-- clone the github repo to your local and navigate to stacker.py
+```bash
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 
 ```
-cd stacker/stacker
+To install stacker clone the repo and:
 
+```bash
+cd stacker
+poetry install 
 ```
+
+Now `stacker` has been installed as a commandline tool.
 
 - Generate dockerfiles
 
 ```bash
-python stacker.py --generate
+stacker --generate
 ```
+
 This command will generate all possible dockerfiles for all OSes and frameworks
-as defined in the spec file.
+as defined in the config file.
 
 ### Core components
 
-
-- specs/dlrs.yaml
+- stacker/configs/dlrs.yaml
 
 A loosely defined specification file
 
@@ -72,7 +64,7 @@ stack:
 Similarly spec files for each stack can be defined, or even put into the one
 single file.
 
-- slices/component.dockerfile
+- stacker/slices/component.dockerfile
 
 Each component is defined as dockerfiles templates
 
