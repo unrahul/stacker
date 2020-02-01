@@ -2,9 +2,9 @@
 
 import fire
 
+from stacker.assembler import generate_all_dockerfiles
 
-from assembler import generate_all_dockerfiles
-
+#from assembler import generate_all_dockerfiles
 
 # TODO implement opts --build, --lint, --dry-run, --tag
 # TODO implement opts --var = variable to add to the global spec dictionary
