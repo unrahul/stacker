@@ -1,1 +1,1 @@
-RUN pip install pytorch=={{torch_version}}
+RUN pip install torch=={{torch_version}}
