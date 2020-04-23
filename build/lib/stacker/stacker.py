@@ -2,7 +2,7 @@
 
 import fire
 
-from assembler import generate_all_dockerfiles
+from stacker.assembler import generate_all_dockerfiles
 
 #from assembler import generate_all_dockerfiles
 

@@ -3,9 +3,9 @@ from pathlib import Path
 
 from jinja2 import Template
 
-from stacker import parser
-from stacker.utils import write_to_file
-from stacker.utils import mkdir_p
+import parser
+from utils import write_to_file
+from utils import mkdir_p
 
 parser.init()
 
